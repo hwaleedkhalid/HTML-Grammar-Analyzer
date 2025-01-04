@@ -1,6 +1,3 @@
-Here is the complete `README.md` in a single file:  
-
-```markdown
 # HTML Grammar Analyzer
 
 This project implements a comprehensive **Lexical Analyzer** and **Syntax Analyzer** for a simplified HTML grammar. The project is designed to tokenize and parse HTML content using **Deterministic Finite Automaton (DFA)** and **Context-Free Grammar (CFG)**.
@@ -42,7 +39,7 @@ HTML-Grammar-Analyzer/
       |_> Transition Table.xlsx # Transition-Table of DFA
       |_> testing.txt           # Input file to test Soft-coded lexical analyzer
       |_> input.txt             # Input file to test Hard-coded lexical analyzer
-```
+
 
 ---
 
@@ -107,4 +104,3 @@ HTML-Grammar-Analyzer/
 ## Author
 **H. Waleed Khalid**  
 Feel free to reach out for feedback or collaboration opportunities.
-```
