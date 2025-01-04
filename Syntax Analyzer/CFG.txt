@@ -1,0 +1,67 @@
+S -> Starting_Tag | Close_Tag | External_CSS | Inline_CSS | Property | Value | Attribute | Content | Starting_With_Attribute | Doc_Type
+
+
+Starting_TAG -> < S1
+Close_Tag -> </ S1
+
+S1-> S2 > | S3 >
+S2-> SL S4
+S3-> SL Digit
+S4-> S2 | ϵ
+
+
+External_CSS -> SL E1
+E1 -> External_CSS | E2
+E2 -> = " E3
+E3 -> # E4 " | . E4 "
+E4 -> comb comb1
+comb1 -> _ comb | D comb
+comb -> SL comb2 | CL comb2
+comb2 -> comb | ϵ
+
+
+Inline_CSS -> SL I1
+I1 -> Inline_CSS | I2
+I2 -> = " I3 "
+I3 -> Property : Value I4
+I4 -> ; I3 | ϵ
+
+
+Property -> CL CL P1
+P1 -> CL CL CL P2 | - CL CL CL P2
+P2 -> CL P2 | ϵ
+
+Value -> CL SL SL Val1 | # Val2
+Val1 -> SL Val1 | ϵ
+Val2 -> AN AN AN AN AN AN 
+AN -> SL | Digit
+
+Attribute -> SL Atr1
+Atr1 -> SL Atr1 | = " Atr2 "
+Atr2 -> SL Atr3
+Atr3 -> SL Atr3 | . Atr4 | - Atr4 | : Atr4 | \ Atr4
+Atr4 -> SL SL SL Atr5
+Atr5 -> SL Atr3 | Atr2 | ϵ
+
+
+Content -> Starting_Tag Cnt1 Close_Tag
+Cnt1 -> comb3 comb3 Cnt2
+Cnt2 -> SL Cnt2 | CL Cnt2 | Digit Cnt2 | Sp_Char Cnt2 | ϵ
+comb3 -> SL | CL
+
+
+Starting_With_Attribute -> < S1 ST1 
+ST1 -> Attribute ST2 >
+ST2 -> Attribute ST2 | ϵ
+
+
+Doc_Type -> <! DOC1 >
+DOC1 -> Var1 Var2 Var3
+Var1 -> D	//Here D is the letter in the Alphabets 
+Var2 -> O	//Here O is the letter in the Alphabets 
+Var3 -> C	//Here C is the letter in the Alphabets 
+
+
+Digit -> 0|1|2|3|4|5|6|7|8|9
+SL -> a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z
+CL -> A|B|C|D|E|F|G|H|I|J|K|L|M|M|O|P|Q|R|S|T|U|V|W|X|Y|Z
