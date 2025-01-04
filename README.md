@@ -39,7 +39,7 @@ HTML-Grammar-Analyzer/
       |_> Transition Table.xlsx # Transition-Table of DFA
       |_> testing.txt           # Input file to test Soft-coded lexical analyzer
       |_> input.txt             # Input file to test Hard-coded lexical analyzer
-
+```
 
 ---
 
